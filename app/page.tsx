@@ -1,69 +1,391 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, QrCode } from 'lucide-react';
+import Image from 'next/image';
+
+// Tipos
+type Slide = {
+  id: number;
+  title: string;
+  component: React.ReactNode;
+};
+
+// Componente para Placeholder de Video
+const VideoPlaceholder = ({ title, filename }: { title: string, filename: string }) => (
+  <div className="w-full h-full flex flex-col items-center justify-center bg-black/40 border border-[#3F3F46] rounded-xl relative overflow-hidden group">
+    <div className="absolute inset-0 bg-gradient-to-br from-[#7C3AED]/20 to-transparent opacity-50"></div>
+    <div className="z-10 text-center p-8">
+      <div className="w-16 h-16 bg-[#27272A] rounded-full flex items-center justify-center mx-auto mb-4 border border-[#7C3AED]/50">
+        <div className="w-0 h-0 border-t-8 border-b-8 border-l-[14px] border-t-transparent border-b-transparent border-l-[#8B5CF6] ml-1"></div>
+      </div>
+      <h3 className="text-xl font-semibold mb-2">{title}</h3>
+      <p className="text-gray-400 text-sm">Sube tu video como:</p>
+      <code className="bg-[#171717] px-3 py-1 rounded text-[#8B5CF6] mt-2 inline-block font-mono text-sm border border-[#3F3F46]">
+        /public/videos/{filename}
+      </code>
     </div>
+  </div>
+);
+
+// Componente para Placeholder de Imagen
+const ImagePlaceholder = ({ title, filename }: { title: string, filename: string }) => (
+  <div className="w-full h-full min-h-[200px] flex flex-col items-center justify-center bg-black/20 border-2 border-dashed border-[#3F3F46] rounded-xl relative overflow-hidden">
+    <div className="z-10 text-center p-4">
+      <div className="w-12 h-12 bg-[#27272A] rounded-lg flex items-center justify-center mx-auto mb-3 border border-[#7C3AED]/30">
+        <svg className="w-6 h-6 text-[#8B5CF6]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <h3 className="text-lg font-medium text-gray-300 mb-1">{title}</h3>
+      <code className="text-xs text-[#8B5CF6] bg-[#171717] px-2 py-1 rounded">/public/fotos/{filename}</code>
+    </div>
+  </div>
+);
+
+export default function Presentation() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Definición de las diapositivas
+  const slides: Slide[] = [
+    {
+      id: 0,
+      title: "Portada",
+      component: (
+        <div className="flex flex-col items-center justify-center h-full text-center space-y-6">
+          <motion.div
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <h1 className="text-7xl font-bold tracking-tight mb-4">
+              <span className="text-white">Back</span>
+              <span className="text-[#8B5CF6]">room</span>
+            </h1>
+            <p className="text-2xl text-gray-400 font-light">
+              Gestión y Organización de Documentos
+            </p>
+          </motion.div>
+          
+          <motion.div 
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="mt-16 pt-16 border-t border-[#3F3F46] w-64 mx-auto"
+          >
+            <p className="text-sm text-gray-500 uppercase tracking-widest mb-2">Presentadores</p>
+            <p className="text-lg text-gray-200">Santiago & Cristian</p>
+          </motion.div>
+        </div>
+      )
+    },
+    // FASE 2: CONTEXTO
+    {
+      id: 1,
+      title: "Contexto y Objetivo",
+      component: (
+        <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
+          <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">1. Contexto y Objetivo</h2>
+          <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            
+            {/* Columna Izquierda: Problema y Contexto */}
+            <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="depth-2 p-8 lg:p-10 rounded-3xl flex flex-col justify-between">
+              <div>
+                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">El Problema de la Gestión Documental</h3>
+                <p className="text-gray-300 text-xl leading-relaxed mb-6">
+                  Las instituciones enfrentan una desorganización crítica al manejar altos volúmenes de oficios mediante métodos tradicionales (papel, emails o carpetas locales sin seguridad). Esto genera pérdida de información vital, cuellos de botella en las aprobaciones, falta de trazabilidad y graves riesgos de acceso no autorizado.
+                </p>
+                <div className="bg-[#171717] p-5 rounded-2xl border border-red-500/30">
+                  <p className="text-red-400 text-xl font-medium">Consecuencia diaria: ¿Quién tiene el documento pendiente? ¿Esta es la versión final? ¿Quién y cuándo autorizó este cambio?</p>
+                </div>
+              </div>
+              
+              <div className="mt-6 flex items-center justify-between bg-black/40 p-4 rounded-2xl border border-[#3F3F46]">
+                <div className="flex items-center gap-6">
+                  <QrCode size={70} className="text-[#8B5CF6]" />
+                  <div>
+                    <h4 className="text-xl font-bold text-white">Escanea el QR</h4>
+                    <p className="text-base text-gray-400">Para ver todo el detalle técnico en la web</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Columna Derecha: Solución, Objetivo y Stakeholders */}
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="flex flex-col gap-6">
+              <div className="depth-2 p-8 lg:p-10 rounded-3xl bg-[#7C3AED]/10 border-[#8B5CF6]/30 flex-grow">
+                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">La Solución: Backroom</h3>
+                <p className="text-gray-200 text-xl leading-relaxed">
+                  Backroom es una plataforma web integral tipo SaaS diseñada para erradicar el caos. Centraliza los archivos en una jerarquía infinita de "Salas", ofreciendo un motor de flujos de trabajo automatizados, firmas de documentos, control estricto de versiones y una matriz de permisos granulares que garantiza eficiencia y control total.
+                </p>
+              </div>
+
+              <div className="depth-2 p-8 rounded-3xl">
+                <h3 className="text-white text-2xl font-bold mb-4">Público Objetivo (Stakeholders)</h3>
+                <ul className="space-y-3 text-gray-300 text-xl list-disc pl-6">
+                  <li><strong>Empresas e Instituciones:</strong> Alto volumen de flujo documental.</li>
+                  <li><strong>Administradores:</strong> Gestión del personal, accesos y seguridad.</li>
+                  <li><strong>Usuarios finales:</strong> Empleados que redactan, revisan y aprueban.</li>
+                </ul>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 2,
+      title: "Impacto y Alcance",
+      component: (
+        <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
+          <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">2. Impacto y Alcance</h2>
+          <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+            
+            {/* Columna Izquierda: Beneficios */}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="depth-2 p-8 rounded-3xl flex flex-col justify-center border-l-4 border-l-[#8B5CF6]">
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-white text-2xl font-bold mb-3 flex items-center gap-3">
+                    <span className="bg-[#8B5CF6] text-white w-8 h-8 flex items-center justify-center rounded-lg text-lg">1</span> 
+                    Reducción de Costos Operativos
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed ml-11">
+                    Eliminación casi total de gastos en papel, impresiones, mensajería y almacenamiento físico.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-white text-2xl font-bold mb-3 flex items-center gap-3">
+                    <span className="bg-[#8B5CF6] text-white w-8 h-8 flex items-center justify-center rounded-lg text-lg">2</span> 
+                    Aumento Exponencial de Productividad
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed ml-11">
+                    Automatización de las aprobaciones, notificaciones in-app y recuperación instantánea de archivos, ahorrando cientos de horas laborables al mes.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-white text-2xl font-bold mb-3 flex items-center gap-3">
+                    <span className="bg-[#8B5CF6] text-white w-8 h-8 flex items-center justify-center rounded-lg text-lg">3</span> 
+                    Seguridad y Rentabilidad (Modelo SaaS)
+                  </h3>
+                  <p className="text-gray-300 text-lg leading-relaxed ml-11">
+                    Trazabilidad total para auditorías. Se comercializa mediante licencias por volumen, permitiendo monetización automatizada.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Columna Derecha: Alcance */}
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="flex flex-col gap-4">
+              <div className="depth-2 p-6 rounded-3xl border-l-8 border-green-500/70 bg-[#171717] flex-grow">
+                <h3 className="text-green-400 text-2xl font-bold mb-4">Completado en el Alcance</h3>
+                <ul className="text-gray-300 text-lg space-y-2 list-disc pl-5">
+                  <li>Autenticación segura (Email y OAuth2 Google/GitHub).</li>
+                  <li>Gestión de Organizaciones, roles fijos y cuentas Demo.</li>
+                  <li>Jerarquía recursiva (Árbol infinito de Salas y Subsalas).</li>
+                  <li>Almacenamiento de múltiples formatos (.docx, .mp4, etc).</li>
+                  <li>Motor completo de Flujos de Trabajo (Aprobaciones).</li>
+                  <li>Firmas de documentos integradas.</li>
+                  <li>Matriz de permisos granulares por cada sala.</li>
+                  <li>Facturación y suscripciones (Integración con Stripe).</li>
+                  <li>Panel de Auditoría e Historial de actividad.</li>
+                </ul>
+              </div>
+
+              <div className="depth-2 p-6 rounded-3xl border-l-8 border-red-500/70 bg-[#171717]">
+                <h3 className="text-red-400 text-2xl font-bold mb-4">Fuera del Alcance (Fases futuras)</h3>
+                <ul className="text-gray-400 text-lg space-y-2 list-disc pl-5">
+                  <li>Registro con proceso de pago complejo (checkout de 3 pasos).</li>
+                  <li>Creación de roles administrativos personalizados a medida.</li>
+                  <li>Soporte multi-organización simultáneo para un solo usuario.</li>
+                  <li>Integraciones con sistemas contables (ERPs) externos.</li>
+                  <li>Aplicaciones móviles nativas (iOS/Android).</li>
+                </ul>
+              </div>
+            </motion.div>
+
+          </div>
+        </div>
+      )
+    },
+    // FASE 3: VIDEOS DE LA APP
+    {
+      id: 3,
+      title: "Landing Page",
+      component: (
+        <div className="flex flex-col h-full p-8 lg:p-12">
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Landing Page</h2>
+          <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
+            <VideoPlaceholder title="Recorrido Landing Page" filename="slide3-landing.mp4" />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 4,
+      title: "Autenticación",
+      component: (
+        <div className="flex flex-col h-full p-8 lg:p-12">
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Autenticación</h2>
+          <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
+            <VideoPlaceholder title="Login, Register y Recovery" filename="slide4-auth.mp4" />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 5,
+      title: "Dashboard",
+      component: (
+        <div className="flex flex-col h-full p-8 lg:p-12">
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Primer Vistazo</h2>
+          <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
+            <VideoPlaceholder title="Dashboard principal y bienvenida" filename="slide5-dashboard.mp4" />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 6,
+      title: "Gestión Documental",
+      component: (
+        <div className="flex flex-col h-full p-8 lg:p-12">
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Gestión Documental</h2>
+          <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
+            <VideoPlaceholder title="Almacenamiento, Historial y Pendientes" filename="slide6-documentos.mp4" />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 7,
+      title: "Estructura Interna",
+      component: (
+        <div className="flex flex-col h-full p-8 lg:p-12">
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Estructura Interna</h2>
+          <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
+            <VideoPlaceholder title="Mis Backrooms, Salas y Permisos" filename="slide7-estructura.mp4" />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 8,
+      title: "Flujo Completo",
+      component: (
+        <div className="flex flex-col h-full p-8 lg:p-12">
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Flujo de Trabajo Completo</h2>
+          <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
+            <VideoPlaceholder title="Proceso end-to-end de un documento" filename="slide8-flujo.mp4" />
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 9,
+      title: "Conclusión",
+      component: (
+        <div className="flex flex-col items-center justify-center h-full text-center relative p-8 lg:p-12">
+          <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none p-12">
+             <VideoPlaceholder title="Fondo Estático / Animación Final" filename="slide9-conclusion.mp4" />
+          </div>
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, filter: "blur(10px)" }}
+            animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
+            transition={{ duration: 1.5 }}
+            className="z-10 depth-2 p-16 lg:p-24 rounded-3xl bg-[#171717]/80 backdrop-blur-md"
+          >
+            <h2 className="text-5xl lg:text-7xl font-light mb-8">
+              Fin de la presentación...
+            </h2>
+            <h1 className="text-7xl lg:text-9xl font-bold tracking-tight mb-12 text-[#8B5CF6]">
+              Backroom
+            </h1>
+            <p className="text-2xl lg:text-3xl text-gray-400">
+              Gracias por su atención.
+            </p>
+          </motion.div>
+        </div>
+      )
+    }
+  ];
+
+  const nextSlide = useCallback(() => {
+    if (currentSlide < slides.length - 1) setCurrentSlide(prev => prev + 1);
+  }, [currentSlide, slides.length]);
+
+  const prevSlide = useCallback(() => {
+    if (currentSlide > 0) setCurrentSlide(prev => prev - 1);
+  }, [currentSlide]);
+
+  // Manejo de teclas
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [nextSlide, prevSlide]);
+
+  return (
+    <main className="h-screen w-screen bg-[#171717] text-[#FAFAFA] flex flex-col overflow-hidden selection:bg-[#7C3AED] selection:text-white relative">
+      
+      {/* Contenedor Principal de la Diapositiva */}
+      <div className="flex-grow relative">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            {slides[currentSlide].component}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Controles y Progreso */}
+      <div className="h-16 border-t border-[#3F3F46] flex items-center justify-between px-6 bg-[#171717] z-50">
+        <div className="text-sm text-gray-500 font-mono">
+          Backroom_SENA_v1
+        </div>
+        
+        {/* Barra de progreso visual */}
+        <div className="flex space-x-2">
+          {slides.map((s, i) => (
+            <div 
+              key={s.id} 
+              className={`h-1.5 rounded-full transition-all duration-300 ${i === currentSlide ? 'w-8 bg-[#8B5CF6]' : 'w-2 bg-[#3F3F46]'}`}
+            />
+          ))}
+        </div>
+
+        <div className="flex items-center space-x-4 text-sm text-gray-400">
+          <span className="mr-4">{currentSlide + 1} / {slides.length}</span>
+          <button 
+            onClick={prevSlide}
+            disabled={currentSlide === 0}
+            className="p-2 hover:bg-[#27272A] rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          <button 
+            onClick={nextSlide}
+            disabled={currentSlide === slides.length - 1}
+            className="p-2 hover:bg-[#27272A] rounded-full transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      </div>
+    </main>
   );
 }
