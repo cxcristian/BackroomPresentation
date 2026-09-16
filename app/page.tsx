@@ -2,9 +2,10 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, QrCode } from 'lucide-react';
+import { ChevronLeft, ChevronRight, QrCode as QrCodeIcon } from 'lucide-react';
 import Image from 'next/image';
 import { PresentationVideo } from '../components/PresentationVideo';
+import QRCode from 'react-qr-code';
 
 // Tipos
 type Slide = {
@@ -104,7 +105,9 @@ export default function Presentation() {
               
               <div className="mt-6 flex items-center justify-between bg-black/40 p-4 rounded-2xl border border-[#3F3F46]">
                 <div className="flex items-center gap-6">
-                  <QrCode size={70} className="text-[#8B5CF6]" />
+                  <div className="bg-white p-2 rounded-lg">
+                    <QRCode value="https://backroomcontext.vercel.app/" size={80} />
+                  </div>
                   <div>
                     <h4 className="text-xl font-bold text-white">Escanea el QR</h4>
                     <p className="text-base text-gray-400">Para ver todo el detalle técnico en la web</p>
