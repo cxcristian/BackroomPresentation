@@ -105,8 +105,8 @@ export default function Presentation() {
               
               <div className="mt-6 flex items-center justify-between bg-black/40 p-4 rounded-2xl border border-[#3F3F46]">
                 <div className="flex items-center gap-6">
-                  <div className="bg-white p-2 rounded-lg">
-                    <QRCode value="https://backroomcontext.vercel.app/" size={80} />
+                  <div className="bg-white p-3 rounded-xl shadow-lg">
+                    <QRCode value="https://backroomcontext.vercel.app/" size={140} />
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white">Escanea el QR</h4>
@@ -291,7 +291,7 @@ export default function Presentation() {
       title: "Cierre / Landing Page",
       component: (
         <div className="w-full h-full relative">
-          <PresentationVideo videos={["landingGrabacion.mp4"]} loop={false} />
+          <PresentationVideo videos={["scene-1.mp4", "scene-2.mp4", "scene-3.mp4"]} loop={false} />
         </div>
       )
     }
