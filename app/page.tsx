@@ -285,28 +285,10 @@ export default function Presentation() {
     },
     {
       id: 9,
-      title: "Conclusión",
+      title: "Cierre / Landing Page",
       component: (
-        <div className="flex flex-col items-center justify-center h-full text-center relative p-8 lg:p-12">
-          <div className="absolute inset-0 flex items-center justify-center opacity-40 pointer-events-none p-12">
-             <PresentationVideo videos={["conclusion1.mp4", "conclusion2.mp4", "conclusion3.mp4"]} loop={false} />
-          </div>
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0, filter: "blur(10px)" }}
-            animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
-            transition={{ duration: 1.5 }}
-            className="z-10 depth-2 p-16 lg:p-24 rounded-3xl bg-[#171717]/80 backdrop-blur-md"
-          >
-            <h2 className="text-5xl lg:text-7xl font-light mb-8">
-              Fin de la presentación...
-            </h2>
-            <h1 className="text-7xl lg:text-9xl font-bold tracking-tight mb-12 text-[#8B5CF6]">
-              Backroom
-            </h1>
-            <p className="text-2xl lg:text-3xl text-gray-400">
-              Gracias por su atención.
-            </p>
-          </motion.div>
+        <div className="w-full h-full relative">
+          <PresentationVideo videos={["landing1.mp4", "landing2.mp4", "landing3.mp4"]} loop={false} />
         </div>
       )
     }
