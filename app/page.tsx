@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight, QrCode } from 'lucide-react';
 import Image from 'next/image';
+import { PresentationVideo } from '../components/PresentationVideo';
 
 // Tipos
 type Slide = {
@@ -217,7 +218,7 @@ export default function Presentation() {
         <div className="flex flex-col h-full p-8 lg:p-12">
           <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Landing Page</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
-            <VideoPlaceholder title="Recorrido Landing Page" filename="slide3-landing.mp4" />
+            <PresentationVideo videos={["landingGrabacion.mp4"]} loop />
           </div>
         </div>
       )
@@ -229,7 +230,7 @@ export default function Presentation() {
         <div className="flex flex-col h-full p-8 lg:p-12">
           <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Autenticación</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
-            <VideoPlaceholder title="Login, Register y Recovery" filename="slide4-auth.mp4" />
+            <PresentationVideo videos={["GrabacionLogin.mp4", "createCountGrabacion.mp4", "GrabacionRecovery.mp4"]} loop />
           </div>
         </div>
       )
@@ -241,7 +242,7 @@ export default function Presentation() {
         <div className="flex flex-col h-full p-8 lg:p-12">
           <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Primer Vistazo</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
-            <VideoPlaceholder title="Dashboard principal y bienvenida" filename="slide5-dashboard.mp4" />
+            <PresentationVideo videos={["GrabacionSoloDashboardVistaInicial.mp4"]} loop />
           </div>
         </div>
       )
@@ -253,7 +254,7 @@ export default function Presentation() {
         <div className="flex flex-col h-full p-8 lg:p-12">
           <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Gestión Documental</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
-            <VideoPlaceholder title="Almacenamiento, Historial y Pendientes" filename="slide6-documentos.mp4" />
+            <PresentationVideo videos={["grabacion_jerarquia_allmacenamiento_historial.mp4"]} loop />
           </div>
         </div>
       )
@@ -265,7 +266,7 @@ export default function Presentation() {
         <div className="flex flex-col h-full p-8 lg:p-12">
           <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Estructura Interna</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
-            <VideoPlaceholder title="Mis Backrooms, Salas y Permisos" filename="slide7-estructura.mp4" />
+            <PresentationVideo videos={["grabacionBackroomSubsalasMapaSubirPermisos.mp4"]} loop />
           </div>
         </div>
       )
@@ -277,7 +278,7 @@ export default function Presentation() {
         <div className="flex flex-col h-full p-8 lg:p-12">
           <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Flujo de Trabajo Completo</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
-            <VideoPlaceholder title="Proceso end-to-end de un documento" filename="slide8-flujo.mp4" />
+            <PresentationVideo videos={["GrabacionFlujoNormal.mp4"]} loop />
           </div>
         </div>
       )
@@ -287,8 +288,8 @@ export default function Presentation() {
       title: "Conclusión",
       component: (
         <div className="flex flex-col items-center justify-center h-full text-center relative p-8 lg:p-12">
-          <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none p-12">
-             <VideoPlaceholder title="Fondo Estático / Animación Final" filename="slide9-conclusion.mp4" />
+          <div className="absolute inset-0 flex items-center justify-center opacity-40 pointer-events-none p-12">
+             <PresentationVideo videos={["conclusion1.mp4", "conclusion2.mp4", "conclusion3.mp4"]} loop={false} />
           </div>
           <motion.div
             initial={{ scale: 0.9, opacity: 0, filter: "blur(10px)" }}
