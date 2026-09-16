@@ -288,7 +288,7 @@ export default function Presentation() {
       title: "Cierre / Landing Page",
       component: (
         <div className="w-full h-full relative">
-          <PresentationVideo videos={["landing1.mp4", "landing2.mp4", "landing3.mp4"]} loop={false} />
+          <PresentationVideo videos={["landingGrabacion.mp4"]} loop={false} />
         </div>
       )
     }
