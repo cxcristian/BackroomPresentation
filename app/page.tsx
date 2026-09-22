@@ -148,19 +148,21 @@ export default function Presentation() {
       component: (
         <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
           <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">Objetivos y Valor</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46] flex flex-col justify-center">
-              <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">Objetivo General</h3>
-              <p className="text-gray-300 text-xl leading-relaxed">Centralizar, asegurar y agilizar el ciclo de vida de los documentos institucionales mediante un sistema web con control de acceso granular y flujos de aprobación transparentes.</p>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46]">
-              <h3 className="text-green-400 text-3xl font-bold mb-6">Métricas e Indicadores</h3>
-              <ul className="text-gray-300 text-xl space-y-6">
-                <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0"></span> <p><strong>Reducción de Tiempo:</strong> De días a minutos en localización y aprobación de oficios.</p></li>
-                <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0"></span> <p><strong>Ahorro Operativo:</strong> 90% menos uso de papel e insumos de impresión.</p></li>
-                <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0"></span> <p><strong>Trazabilidad:</strong> 100% de acciones de los usuarios registradas en el historial.</p></li>
-              </ul>
-            </motion.div>
+          <div className="flex-grow flex items-center justify-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-6xl">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] flex flex-col justify-center shadow-xl">
+                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-6">Objetivo General</h3>
+                <p className="text-gray-300 text-xl leading-relaxed">Centralizar, asegurar y agilizar el ciclo de vida de los documentos institucionales mediante un sistema web moderno. Buscamos eliminar la dependencia de archivos físicos y correos electrónicos dispersos, garantizando un control de acceso granular y flujos de aprobación totalmente transparentes.</p>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] shadow-xl">
+                <h3 className="text-green-400 text-3xl font-bold mb-8">Métricas e Indicadores (KPIs)</h3>
+                <ul className="text-gray-300 text-xl space-y-6">
+                  <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span> <p><strong>Reducción de Tiempo:</strong> De días a minutos en la localización, revisión y aprobación de oficios urgentes.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span> <p><strong>Ahorro Operativo:</strong> 90% menos uso de papel, insumos de impresión y espacio físico de almacenamiento.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span> <p><strong>Trazabilidad Absoluta:</strong> 100% de las acciones de los usuarios quedan registradas en el historial inmutable.</p></li>
+                </ul>
+              </motion.div>
+            </div>
           </div>
         </div>
       )
@@ -298,28 +300,34 @@ export default function Presentation() {
         <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
           <h2 className="text-5xl font-bold mb-8 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">Seguridad y Control de Amenazas</h2>
           
-          <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-red-900/20 border border-red-500/30 p-6 rounded-2xl">
-              <h3 className="text-red-400 text-2xl font-bold mb-4 flex items-center gap-2">
-                <span className="text-2xl">⚠️</span> Amenaza: Acceso a Datos de Terceros
-              </h3>
-              <p className="text-gray-300 text-lg mb-4">Riesgo de que un usuario manipule la URL o la API para leer documentos de otros usuarios o salas a las que no pertenece.</p>
-              <div className="bg-[#171717] p-4 rounded-xl border border-[#3f3f46]">
-                <h4 className="text-green-400 font-bold mb-1">Control Aplicado: RLS (PostgreSQL)</h4>
-                <p className="text-gray-400 text-sm">Implementamos Row Level Security directamente en la base de datos. Incluso si la API es vulnerada, la DB rechaza la consulta si el UUID del JWT no coincide con el propietario del registro.</p>
-              </div>
-            </motion.div>
+          <div className="flex-grow flex items-center justify-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-6xl">
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-red-900/10 border border-red-500/30 p-10 rounded-3xl flex flex-col justify-between shadow-xl">
+                <div>
+                  <h3 className="text-red-400 text-3xl font-bold mb-6 flex items-center gap-3">
+                    <span className="text-3xl">⚠️</span> Amenaza: Acceso a Datos de Terceros
+                  </h3>
+                  <p className="text-gray-300 text-xl mb-8 leading-relaxed">Existe el riesgo latente de que un usuario malintencionado intente manipular la URL o la API para interceptar y leer documentos confidenciales de otras organizaciones o salas a las que no pertenece.</p>
+                </div>
+                <div className="bg-[#171717] p-6 rounded-2xl border border-[#3f3f46]">
+                  <h4 className="text-green-400 font-bold text-xl mb-3 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> Control: RLS (PostgreSQL)</h4>
+                  <p className="text-gray-400 text-base leading-relaxed">Implementamos Row Level Security (RLS) directamente a nivel de base de datos. Incluso si la capa de la API fuera vulnerada, la base de datos rechaza automáticamente cualquier consulta si el UUID del token JWT no coincide exactamente con el propietario del registro.</p>
+                </div>
+              </motion.div>
 
-            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="bg-red-900/20 border border-red-500/30 p-6 rounded-2xl">
-              <h3 className="text-red-400 text-2xl font-bold mb-4 flex items-center gap-2">
-                <span className="text-2xl">⚠️</span> Amenaza: Escalada de Privilegios
-              </h3>
-              <p className="text-gray-300 text-lg mb-4">Usuarios intentando acceder a rutas protegidas (ej. Dashboard) sin iniciar sesión o con un rol inferior.</p>
-              <div className="bg-[#171717] p-4 rounded-xl border border-[#3f3f46]">
-                <h4 className="text-green-400 font-bold mb-1">Control Aplicado: Edge Middleware</h4>
-                <p className="text-gray-400 text-sm">Validación estricta de cookies HTTP-Only y tokens JWT en el Edge (antes de renderizar la página). Bloqueo y redirección automática en tiempo de servidor.</p>
-              </div>
-            </motion.div>
+              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="bg-red-900/10 border border-red-500/30 p-10 rounded-3xl flex flex-col justify-between shadow-xl">
+                <div>
+                  <h3 className="text-red-400 text-3xl font-bold mb-6 flex items-center gap-3">
+                    <span className="text-3xl">⚠️</span> Amenaza: Escalada de Privilegios
+                  </h3>
+                  <p className="text-gray-300 text-xl mb-8 leading-relaxed">Usuarios no autenticados o con roles básicos podrían intentar forzar su acceso a rutas protegidas (como el Dashboard de administración) para ejecutar acciones destructivas.</p>
+                </div>
+                <div className="bg-[#171717] p-6 rounded-2xl border border-[#3f3f46]">
+                  <h4 className="text-green-400 font-bold text-xl mb-3 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> Control: Edge Middleware</h4>
+                  <p className="text-gray-400 text-base leading-relaxed">Validación estricta de cookies HTTP-Only y tokens JWT en el Edge (antes de que la petición llegue al servidor principal). Esto permite un bloqueo y redirección instantáneos, previniendo fugas de información en la interfaz.</p>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       )
@@ -404,31 +412,33 @@ export default function Presentation() {
         <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
           <h2 className="text-5xl font-bold mb-8 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">Resultados, Limitaciones y Futuro</h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-grow">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46]">
-              <h3 className="text-[#10B981] text-3xl font-bold mb-4">Éxitos e Indicadores</h3>
-              <ul className="text-gray-300 text-lg space-y-4">
-                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#10B981] shrink-0"></span> Despliegue CI/CD estable.</li>
-                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#10B981] shrink-0"></span> Flujos de aprobación verificados con roles reales.</li>
-                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#10B981] shrink-0"></span> UX de carga de documentos fluida (Edge).</li>
-              </ul>
-            </motion.div>
+          <div className="flex-grow flex items-center justify-center">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full max-w-7xl">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] shadow-xl">
+                <h3 className="text-[#10B981] text-3xl font-bold mb-6">Éxitos e Indicadores</h3>
+                <ul className="text-gray-300 text-lg space-y-6">
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#10B981] shrink-0"></span> <p><strong>Despliegue Ininterrumpido:</strong> Pipeline CI/CD estable mediante GitHub Actions con cero caídas en producción.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#10B981] shrink-0"></span> <p><strong>Seguridad Comprobada:</strong> Flujos de aprobación y autenticación verificados con roles estrictos.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#10B981] shrink-0"></span> <p><strong>UX Optimizada:</strong> Carga de documentos e interfaz fluida gracias al procesamiento en el Edge.</p></li>
+                </ul>
+              </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46]">
-              <h3 className="text-[#F59E0B] text-3xl font-bold mb-4">Deuda Técnica</h3>
-              <ul className="text-gray-300 text-lg space-y-4">
-                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#F59E0B] shrink-0"></span> Pruebas E2E limitadas.</li>
-                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#F59E0B] shrink-0"></span> Falta refactorizar el código de algunos componentes monolíticos del Dashboard.</li>
-              </ul>
-            </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] shadow-xl">
+                <h3 className="text-[#F59E0B] text-3xl font-bold mb-6">Deuda Técnica</h3>
+                <ul className="text-gray-300 text-lg space-y-6">
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#F59E0B] shrink-0"></span> <p><strong>Pruebas E2E Limitadas:</strong> La cobertura de test automatizados actuales es baja; se planea integrar Cypress para flujos completos.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#F59E0B] shrink-0"></span> <p><strong>Refactorización:</strong> Falta desacoplar el código de algunos componentes monolíticos del Dashboard principal para mejorar su mantenibilidad.</p></li>
+                </ul>
+              </motion.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46]">
-              <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">Trabajo Futuro</h3>
-              <ul className="text-gray-300 text-lg space-y-4">
-                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#8B5CF6] shrink-0"></span> Implementar Multi-Tenant (Varias empresas en el mismo sistema).</li>
-                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#8B5CF6] shrink-0"></span> Firma Electrónica conectada a autoridades certificadoras.</li>
-              </ul>
-            </motion.div>
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] shadow-xl">
+                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-6">Trabajo Futuro</h3>
+                <ul className="text-gray-300 text-lg space-y-6">
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#8B5CF6] shrink-0"></span> <p><strong>Arquitectura Multi-Tenant:</strong> Escalar la base de datos para que múltiples organizaciones independientes compartan la infraestructura del sistema de forma segura.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#8B5CF6] shrink-0"></span> <p><strong>Firma Electrónica Real:</strong> Conexión con APIs de autoridades certificadoras oficiales para otorgar validez legal a los documentos firmados.</p></li>
+                </ul>
+              </motion.div>
+            </div>
           </div>
         </div>
       )
