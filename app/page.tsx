@@ -213,7 +213,7 @@ export default function Presentation() {
                 <ul className="text-gray-300 text-lg space-y-2 list-disc pl-5">
                   <li>Autenticación segura (Email y OAuth2 Google/GitHub).</li>
                   <li>Gestión de Organizaciones, roles fijos y cuentas Demo.</li>
-                  <li>Jerarquía recursiva (Árbol infinito de Salas y Subsalas).</li>
+                  <li>Jerarquía de Salas y Subsalas (Límite actual de 3 niveles).</li>
                   <li>Almacenamiento de múltiples formatos (.docx, .mp4, etc).</li>
                   <li>Motor completo de Flujos de Trabajo (Aprobaciones).</li>
                   <li>Firmas de documentos integradas.</li>
