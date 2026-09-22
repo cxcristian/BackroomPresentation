@@ -213,9 +213,57 @@ export default function Presentation() {
         </div>
       )
     },
-    // FASE 3: VIDEOS DE LA APP
     {
       id: 3,
+      title: "Arquitectura y Tecnologías",
+      component: (
+        <div className="flex flex-col h-full py-8 px-12 lg:px-20">
+          <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white">Arquitectura y Tecnologías</h2>
+          <div className="flex-grow flex flex-col justify-center items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
+              {/* Frontend */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-[#171717] border border-[#3f3f46] p-8 rounded-3xl flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-[#27272a] rounded-2xl flex items-center justify-center mb-4 text-[#8B5CF6]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Frontend</h3>
+                <p className="text-gray-400">Next.js (App Router), React, Tailwind CSS y Framer Motion para interfaces fluidas.</p>
+              </motion.div>
+
+              {/* Backend / DB */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-[#171717] border border-[#3f3f46] p-8 rounded-3xl flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-[#27272a] rounded-2xl flex items-center justify-center mb-4 text-[#10B981]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Backend & BD</h3>
+                <p className="text-gray-400">Supabase (PostgreSQL), Edge Middlewares, Buckets S3 y autenticación JWT.</p>
+              </motion.div>
+
+              {/* Seguridad */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-[#171717] border border-[#3f3f46] p-8 rounded-3xl flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-[#27272a] rounded-2xl flex items-center justify-center mb-4 text-[#F59E0B]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Seguridad</h3>
+                <p className="text-gray-400">Row Level Security (RLS), validación de roles en servidor y encriptación Bcrypt.</p>
+              </motion.div>
+
+              {/* CI/CD */}
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-[#171717] border border-[#3f3f46] p-8 rounded-3xl flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-[#27272a] rounded-2xl flex items-center justify-center mb-4 text-[#EC4899]">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">CI / CD</h3>
+                <p className="text-gray-400">Control de versiones con GitHub Actions y despliegues automáticos en Vercel.</p>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    // FASE 3: VIDEOS DE LA APP
+    {
+      id: 4,
       title: "Landing Page",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -290,8 +338,25 @@ export default function Presentation() {
       id: 9,
       title: "Cierre / Landing Page",
       component: (
-        <div className="w-full h-full relative">
-          <PresentationVideo videos={["scene-1.mp4", "scene-2.mp4", "scene-3.mp4"]} loop={false} />
+        <div className="w-full h-full relative flex items-center justify-center">
+          <div className="absolute inset-0 z-0">
+            <PresentationVideo videos={["scene-1.mp4", "scene-2.mp4", "scene-3.mp4"]} loop={false} />
+          </div>
+          {/* Overlay for Q&A and Context QR */}
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 10, duration: 2 }} /* Appears near the end of the video sequence */
+            className="z-10 bg-[#171717]/80 backdrop-blur-xl border border-[#3f3f46] p-12 rounded-3xl flex flex-col items-center gap-8 shadow-2xl mt-32"
+          >
+            <div className="text-center">
+              <h2 className="text-4xl font-bold text-white mb-2">Preguntas Técnicas</h2>
+              <p className="text-gray-400 text-lg">Escanea para acceder a la Arquitectura y Código</p>
+            </div>
+            <div className="bg-white p-4 rounded-2xl">
+              <QRCode value="https://backroomcontext.vercel.app/" size={200} />
+            </div>
+          </motion.div>
         </div>
       )
     }
