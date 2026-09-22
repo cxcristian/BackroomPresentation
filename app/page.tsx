@@ -65,9 +65,12 @@ export default function Presentation() {
               <span className="text-white">Back</span>
               <span className="text-[#8B5CF6]">room</span>
             </h1>
-            <p className="text-2xl text-gray-400 font-light">
+            <p className="text-2xl text-gray-400 font-light mb-2">
               Gestión y Organización de Documentos
             </p>
+            <div className="inline-block border border-[#8B5CF6]/50 bg-[#8B5CF6]/10 text-[#8B5CF6] px-3 py-1 rounded-full text-sm font-medium tracking-wide">
+              v9.2.0
+            </div>
           </motion.div>
           
           <motion.div 
@@ -141,6 +144,29 @@ export default function Presentation() {
     },
     {
       id: 2,
+      title: "Objetivos y Valor",
+      component: (
+        <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
+          <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">Objetivos y Valor</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46] flex flex-col justify-center">
+              <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">Objetivo General</h3>
+              <p className="text-gray-300 text-xl leading-relaxed">Centralizar, asegurar y agilizar el ciclo de vida de los documentos institucionales mediante un sistema web con control de acceso granular y flujos de aprobación transparentes.</p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46]">
+              <h3 className="text-green-400 text-3xl font-bold mb-6">Métricas e Indicadores</h3>
+              <ul className="text-gray-300 text-xl space-y-6">
+                <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0"></span> <p><strong>Reducción de Tiempo:</strong> De días a minutos en localización y aprobación de oficios.</p></li>
+                <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0"></span> <p><strong>Ahorro Operativo:</strong> 90% menos uso de papel e insumos de impresión.</p></li>
+                <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0"></span> <p><strong>Trazabilidad:</strong> 100% de acciones de los usuarios registradas en el historial.</p></li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 3,
       title: "Impacto y Alcance",
       component: (
         <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
@@ -214,11 +240,11 @@ export default function Presentation() {
       )
     },
     {
-      id: 3,
-      title: "Arquitectura y Tecnologías",
+      id: 4,
+      title: "Arquitectura y Decisiones Técnicas",
       component: (
         <div className="flex flex-col h-full py-8 px-12 lg:px-20">
-          <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white">Arquitectura y Tecnologías</h2>
+          <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white">Arquitectura y Decisiones Principales</h2>
           <div className="flex-grow flex flex-col justify-center items-center">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl">
               {/* Frontend */}
@@ -226,8 +252,9 @@ export default function Presentation() {
                 <div className="w-16 h-16 bg-[#27272a] rounded-2xl flex items-center justify-center mb-4 text-[#8B5CF6]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Frontend</h3>
-                <p className="text-gray-400">Next.js (App Router), React, Tailwind CSS y Framer Motion para interfaces fluidas.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Frontend Reactivo</h3>
+                <p className="text-gray-400 text-sm mb-2"><strong>Decisión:</strong> Next.js (App Router), React y Tailwind CSS.</p>
+                <p className="text-gray-500 text-xs">Separación de Server y Client components para mejorar rendimiento (SSR) y SEO.</p>
               </motion.div>
 
               {/* Backend / DB */}
@@ -235,8 +262,9 @@ export default function Presentation() {
                 <div className="w-16 h-16 bg-[#27272a] rounded-2xl flex items-center justify-center mb-4 text-[#10B981]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Backend & BD</h3>
-                <p className="text-gray-400">Supabase (PostgreSQL), Edge Middlewares, Buckets S3 y autenticación JWT.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">BaaS & PostgreSQL</h3>
+                <p className="text-gray-400 text-sm mb-2"><strong>Decisión:</strong> Supabase como backend-as-a-service.</p>
+                <p className="text-gray-500 text-xs">Manejo de modelos relacionales, almacenamiento en Buckets S3 y autenticación nativa.</p>
               </motion.div>
 
               {/* Seguridad */}
@@ -244,8 +272,9 @@ export default function Presentation() {
                 <div className="w-16 h-16 bg-[#27272a] rounded-2xl flex items-center justify-center mb-4 text-[#F59E0B]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Seguridad</h3>
-                <p className="text-gray-400">Row Level Security (RLS), validación de roles en servidor y encriptación Bcrypt.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Seguridad en Capas</h3>
+                <p className="text-gray-400 text-sm mb-2"><strong>Decisión:</strong> JWT + Row Level Security (RLS).</p>
+                <p className="text-gray-500 text-xs">Middleware en Next.js para rutas, y RLS en Postgres para asegurar que los usuarios solo vean sus datos.</p>
               </motion.div>
 
               {/* CI/CD */}
@@ -253,17 +282,51 @@ export default function Presentation() {
                 <div className="w-16 h-16 bg-[#27272a] rounded-2xl flex items-center justify-center mb-4 text-[#EC4899]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">CI / CD</h3>
-                <p className="text-gray-400">Control de versiones con GitHub Actions y despliegues automáticos en Vercel.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">Integración Continua</h3>
+                <p className="text-gray-400 text-sm mb-2"><strong>Decisión:</strong> GitHub Actions y Vercel.</p>
+                <p className="text-gray-500 text-xs">Protección de rama main. Despliegues inmutables automáticos con rollback garantizado.</p>
               </motion.div>
             </div>
           </div>
         </div>
       )
     },
+    {
+      id: 5,
+      title: "Seguridad y Controles Aplicados",
+      component: (
+        <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
+          <h2 className="text-5xl font-bold mb-8 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">Seguridad y Control de Amenazas</h2>
+          
+          <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-red-900/20 border border-red-500/30 p-6 rounded-2xl">
+              <h3 className="text-red-400 text-2xl font-bold mb-4 flex items-center gap-2">
+                <span className="text-2xl">⚠️</span> Amenaza: Acceso a Datos de Terceros
+              </h3>
+              <p className="text-gray-300 text-lg mb-4">Riesgo de que un usuario manipule la URL o la API para leer documentos de otros usuarios o salas a las que no pertenece.</p>
+              <div className="bg-[#171717] p-4 rounded-xl border border-[#3f3f46]">
+                <h4 className="text-green-400 font-bold mb-1">Control Aplicado: RLS (PostgreSQL)</h4>
+                <p className="text-gray-400 text-sm">Implementamos Row Level Security directamente en la base de datos. Incluso si la API es vulnerada, la DB rechaza la consulta si el UUID del JWT no coincide con el propietario del registro.</p>
+              </div>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="bg-red-900/20 border border-red-500/30 p-6 rounded-2xl">
+              <h3 className="text-red-400 text-2xl font-bold mb-4 flex items-center gap-2">
+                <span className="text-2xl">⚠️</span> Amenaza: Escalada de Privilegios
+              </h3>
+              <p className="text-gray-300 text-lg mb-4">Usuarios intentando acceder a rutas protegidas (ej. Dashboard) sin iniciar sesión o con un rol inferior.</p>
+              <div className="bg-[#171717] p-4 rounded-xl border border-[#3f3f46]">
+                <h4 className="text-green-400 font-bold mb-1">Control Aplicado: Edge Middleware</h4>
+                <p className="text-gray-400 text-sm">Validación estricta de cookies HTTP-Only y tokens JWT en el Edge (antes de renderizar la página). Bloqueo y redirección automática en tiempo de servidor.</p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      )
+    },
     // FASE 3: VIDEOS DE LA APP
     {
-      id: 4,
+      id: 6,
       title: "Landing Page",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -275,7 +338,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 4,
+      id: 7,
       title: "Autenticación",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -287,7 +350,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 5,
+      id: 8,
       title: "Dashboard",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -299,7 +362,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 6,
+      id: 9,
       title: "Gestión Documental",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -311,7 +374,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 7,
+      id: 10,
       title: "Estructura Interna",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -323,7 +386,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 8,
+      id: 11,
       title: "Flujo Completo",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -335,7 +398,43 @@ export default function Presentation() {
       )
     },
     {
-      id: 9,
+      id: 12,
+      title: "Resultados y Cierre",
+      component: (
+        <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
+          <h2 className="text-5xl font-bold mb-8 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">Resultados, Limitaciones y Futuro</h2>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 flex-grow">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46]">
+              <h3 className="text-[#10B981] text-3xl font-bold mb-4">Éxitos e Indicadores</h3>
+              <ul className="text-gray-300 text-lg space-y-4">
+                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#10B981] shrink-0"></span> Despliegue CI/CD estable.</li>
+                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#10B981] shrink-0"></span> Flujos de aprobación verificados con roles reales.</li>
+                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#10B981] shrink-0"></span> UX de carga de documentos fluida (Edge).</li>
+              </ul>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46]">
+              <h3 className="text-[#F59E0B] text-3xl font-bold mb-4">Deuda Técnica</h3>
+              <ul className="text-gray-300 text-lg space-y-4">
+                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#F59E0B] shrink-0"></span> Pruebas E2E limitadas.</li>
+                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#F59E0B] shrink-0"></span> Falta refactorizar el código de algunos componentes monolíticos del Dashboard.</li>
+              </ul>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-[#171717] p-8 rounded-3xl border border-[#3f3f46]">
+              <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">Trabajo Futuro</h3>
+              <ul className="text-gray-300 text-lg space-y-4">
+                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#8B5CF6] shrink-0"></span> Implementar Multi-Tenant (Varias empresas en el mismo sistema).</li>
+                <li className="flex items-start gap-3"><span className="w-2 h-2 mt-2 rounded-full bg-[#8B5CF6] shrink-0"></span> Firma Electrónica conectada a autoridades certificadoras.</li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 13,
       title: "Cierre / Landing Page",
       component: (
         <div className="w-full h-full relative flex items-center justify-center">
