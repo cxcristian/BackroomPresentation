@@ -342,21 +342,6 @@ export default function Presentation() {
           <div className="absolute inset-0 z-0">
             <PresentationVideo videos={["scene-1.mp4", "scene-2.mp4", "scene-3.mp4"]} loop={false} />
           </div>
-          {/* Overlay for Q&A and Context QR */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 10, duration: 2 }} /* Appears near the end of the video sequence */
-            className="z-10 bg-[#171717]/80 backdrop-blur-xl border border-[#3f3f46] p-12 rounded-3xl flex flex-col items-center gap-8 shadow-2xl mt-32"
-          >
-            <div className="text-center">
-              <h2 className="text-4xl font-bold text-white mb-2">Preguntas Técnicas</h2>
-              <p className="text-gray-400 text-lg">Escanea para acceder a la Arquitectura y Código</p>
-            </div>
-            <div className="bg-white p-4 rounded-2xl">
-              <QRCode value="https://backroomcontext.vercel.app/" size={200} />
-            </div>
-          </motion.div>
         </div>
       )
     }
