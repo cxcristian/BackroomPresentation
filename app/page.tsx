@@ -349,7 +349,6 @@ export default function Presentation() {
                 <h3 className="text-green-400 text-3xl font-bold mb-6">Reglas Estrictas de Integridad</h3>
                 <ul className="space-y-5 text-gray-300 text-lg">
                   <li><strong className="text-white">Row Level Security (RLS):</strong> Políticas en PostgreSQL. El tenant A jamás puede consultar la base de datos del tenant B a nivel de motor SQL.</li>
-                  <li><strong className="text-white">Borrado en Cascada (Cascade Delete):</strong> Relaciones foráneas. Borrar una organización purga de inmediato sus salas, documentos, firmas y flujos para evitar datos huérfanos.</li>
                   <li><strong className="text-white">Storage Privado:</strong> Los buckets en Supabase ignoran accesos públicos. Exigen token de sesión activo y membresía validada en la organización propietaria.</li>
                 </ul>
               </motion.div>
