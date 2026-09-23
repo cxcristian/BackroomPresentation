@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -49,7 +49,7 @@ const ImagePlaceholder = ({ title, filename }: { title: string, filename: string
 export default function Presentation() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Definición de las diapositivas
+  // DefiniciÃ³n de las diapositivas
   const slides: Slide[] = [
     {
       id: 0,
@@ -66,7 +66,7 @@ export default function Presentation() {
               <span className="text-[#8B5CF6]">room</span>
             </h1>
             <p className="text-2xl text-gray-400 font-light mb-2">
-              Plataforma Web de Gestión Documental y Flujos de Trabajo
+              Plataforma Web de GestiÃ³n Documental y Flujos de Trabajo
             </p>
             <div className="inline-block border border-[#8B5CF6]/50 bg-[#8B5CF6]/10 text-[#8B5CF6] px-3 py-1 rounded-full text-sm font-medium tracking-wide">
               v9.2.0
@@ -97,12 +97,12 @@ export default function Presentation() {
             {/* Columna Izquierda: Problema y Contexto */}
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="depth-2 p-8 lg:p-10 rounded-3xl flex flex-col justify-between">
               <div>
-                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">El Problema de la Gestión Documental</h3>
+                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">El Problema de la GestiÃ³n Documental</h3>
                 <p className="text-gray-300 text-xl leading-relaxed mb-6">
-                  Las instituciones enfrentan una desorganización crítica al manejar altos volúmenes de oficios mediante métodos tradicionales (papel, emails o carpetas locales sin seguridad). Esto genera pérdida de información vital, cuellos de botella en las aprobaciones, falta de trazabilidad y graves riesgos de acceso no autorizado.
+                  Las instituciones enfrentan una desorganizaciÃ³n crÃ­tica al manejar altos volÃºmenes de oficios mediante mÃ©todos tradicionales (papel, emails o carpetas locales sin seguridad). Esto genera pÃ©rdida de informaciÃ³n vital, cuellos de botella en las aprobaciones, falta de trazabilidad y graves riesgos de acceso no autorizado.
                 </p>
                 <div className="bg-[#171717] p-5 rounded-2xl border border-red-500/30">
-                  <p className="text-red-400 text-xl font-medium">Consecuencia diaria: ¿Quién tiene el documento pendiente? ¿Esta es la versión final? ¿Quién y cuándo autorizó este cambio?</p>
+                  <p className="text-red-400 text-xl font-medium">Consecuencia diaria: Â¿QuiÃ©n tiene el documento pendiente? Â¿Esta es la versiÃ³n final? Â¿QuiÃ©n y cuÃ¡ndo autorizÃ³ este cambio?</p>
                 </div>
               </div>
               
@@ -113,26 +113,26 @@ export default function Presentation() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white">Escanea el QR</h4>
-                    <p className="text-base text-gray-400">Para ver todo el detalle técnico en la web</p>
+                    <p className="text-base text-gray-400">Para ver m&aacute;s detalles de Backroom</p>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* Columna Derecha: Solución, Objetivo y Stakeholders */}
+            {/* Columna Derecha: SoluciÃ³n, Objetivo y Stakeholders */}
             <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="flex flex-col gap-6">
               <div className="depth-2 p-8 lg:p-10 rounded-3xl bg-[#7C3AED]/10 border-[#8B5CF6]/30 flex-grow">
-                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">La Solución: Backroom</h3>
+                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">La SoluciÃ³n: Backroom</h3>
                 <p className="text-gray-200 text-xl leading-relaxed">
-                  Backroom es una plataforma web integral tipo SaaS diseñada para erradicar el caos. Centraliza los archivos en una jerarquía estructurada de "Salas", ofreciendo un motor de flujos de trabajo automatizados, firmas de documentos integradas y una matriz de permisos granulares que garantiza eficiencia y seguridad total.
+                  Backroom es una plataforma web integral tipo SaaS diseÃ±ada para erradicar el caos. Centraliza los archivos en una jerarquÃ­a estructurada de "Salas", ofreciendo un motor de flujos de trabajo automatizados, firmas de documentos integradas y una matriz de permisos granulares que garantiza eficiencia y seguridad total.
                 </p>
               </div>
 
               <div className="depth-2 p-8 rounded-3xl">
-                <h3 className="text-white text-2xl font-bold mb-4">Público Objetivo (Stakeholders)</h3>
+                <h3 className="text-white text-2xl font-bold mb-4">PÃºblico Objetivo (Stakeholders)</h3>
                 <ul className="space-y-3 text-gray-300 text-xl list-disc pl-6">
                   <li><strong>Empresas e Instituciones:</strong> Alto volumen de flujo documental.</li>
-                  <li><strong>Administradores:</strong> Gestión del personal, accesos y seguridad.</li>
+                  <li><strong>Administradores:</strong> GestiÃ³n del personal, accesos y seguridad.</li>
                   <li><strong>Usuarios finales:</strong> Empleados que redactan, revisan y aprueban.</li>
                 </ul>
               </div>
@@ -152,13 +152,13 @@ export default function Presentation() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-6xl">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] flex flex-col justify-center shadow-xl">
                 <h3 className="text-[#8B5CF6] text-3xl font-bold mb-6">Objetivo General</h3>
-                <p className="text-gray-300 text-xl leading-relaxed">Centralizar, asegurar y agilizar el ciclo de vida de los documentos institucionales mediante un sistema web moderno. Buscamos eliminar la dependencia de archivos físicos y correos electrónicos dispersos, garantizando un control de acceso granular y flujos de aprobación totalmente transparentes.</p>
+                <p className="text-gray-300 text-xl leading-relaxed">Centralizar, asegurar y agilizar el ciclo de vida de los documentos institucionales mediante un sistema web moderno. Buscamos eliminar la dependencia de archivos fÃ­sicos y correos electrÃ³nicos dispersos, garantizando un control de acceso granular y flujos de aprobaciÃ³n totalmente transparentes.</p>
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] shadow-xl">
-                <h3 className="text-green-400 text-3xl font-bold mb-8">Métricas e Indicadores (KPIs)</h3>
+                <h3 className="text-green-400 text-3xl font-bold mb-8">MÃ©tricas e Indicadores (KPIs)</h3>
                 <ul className="text-gray-300 text-xl space-y-6">
-                  <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span> <p><strong>Reducción de Tiempo:</strong> De días a minutos en la localización, revisión y aprobación de oficios urgentes.</p></li>
-                  <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span> <p><strong>Ahorro Operativo:</strong> 90% menos uso de papel, insumos de impresión y espacio físico de almacenamiento.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span> <p><strong>ReducciÃ³n de Tiempo:</strong> De dÃ­as a minutos en la localizaciÃ³n, revisiÃ³n y aprobaciÃ³n de oficios urgentes.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span> <p><strong>Ahorro Operativo:</strong> 90% menos uso de papel, insumos de impresiÃ³n y espacio fÃ­sico de almacenamiento.</p></li>
                   <li className="flex items-start gap-4"><span className="w-3 h-3 mt-2 rounded-full bg-green-400 shrink-0 shadow-[0_0_10px_rgba(74,222,128,0.8)]"></span> <p><strong>Trazabilidad Absoluta:</strong> 100% de las acciones de los usuarios quedan registradas en el historial inmutable.</p></li>
                 </ul>
               </motion.div>
@@ -181,10 +181,10 @@ export default function Presentation() {
                 <div>
                   <h3 className="text-white text-2xl font-bold mb-3 flex items-center gap-3">
                     <span className="bg-[#8B5CF6] text-white w-8 h-8 flex items-center justify-center rounded-lg text-lg">1</span> 
-                    Reducción de Costos Operativos
+                    ReducciÃ³n de Costos Operativos
                   </h3>
                   <p className="text-gray-300 text-lg leading-relaxed ml-11">
-                    Eliminación casi total de gastos en papel, impresiones, mensajería y almacenamiento físico.
+                    EliminaciÃ³n casi total de gastos en papel, impresiones, mensajerÃ­a y almacenamiento fÃ­sico.
                   </p>
                 </div>
                 <div>
@@ -193,7 +193,7 @@ export default function Presentation() {
                     Aumento Exponencial de Productividad
                   </h3>
                   <p className="text-gray-300 text-lg leading-relaxed ml-11">
-                    Automatización de las aprobaciones, notificaciones in-app y recuperación instantánea de archivos, ahorrando cientos de horas laborables al mes.
+                    AutomatizaciÃ³n de las aprobaciones, notificaciones in-app y recuperaciÃ³n instantÃ¡nea de archivos, ahorrando cientos de horas laborables al mes.
                   </p>
                 </div>
                 <div>
@@ -202,7 +202,7 @@ export default function Presentation() {
                     Seguridad y Rentabilidad (Modelo SaaS)
                   </h3>
                   <p className="text-gray-300 text-lg leading-relaxed ml-11">
-                    Trazabilidad total para auditorías. Se comercializa mediante licencias por volumen, permitiendo monetización automatizada.
+                    Trazabilidad total para auditorÃ­as. Se comercializa mediante licencias por volumen, permitiendo monetizaciÃ³n automatizada.
                   </p>
                 </div>
               </div>
@@ -213,15 +213,15 @@ export default function Presentation() {
               <div className="depth-2 p-6 rounded-3xl border-l-8 border-green-500/70 bg-[#171717] flex-grow">
                 <h3 className="text-green-400 text-2xl font-bold mb-4">Completado en el Alcance (MVP)</h3>
                 <ul className="text-gray-300 text-lg space-y-2 list-disc pl-5">
-                  <li>Autenticación segura (Email y OAuth2 Google/GitHub).</li>
-                  <li>Gestión de Organizaciones, roles fijos y cuentas Demo.</li>
-                  <li>Jerarquía de Salas y Subsalas (Límite actual de 3 niveles).</li>
-                  <li>Almacenamiento de múltiples formatos (.docx, .mp4, etc).</li>
+                  <li>AutenticaciÃ³n segura (Email y OAuth2 Google/GitHub).</li>
+                  <li>GestiÃ³n de Organizaciones, roles fijos y cuentas Demo.</li>
+                  <li>JerarquÃ­a de Salas y Subsalas (LÃ­mite actual de 3 niveles).</li>
+                  <li>Almacenamiento de mÃºltiples formatos (.docx, .mp4, etc).</li>
                   <li>Motor completo de Flujos de Trabajo (Aprobaciones).</li>
                   <li>Firmas de documentos integradas.</li>
                   <li>Matriz de permisos granulares por cada sala.</li>
-                  <li>Facturación y suscripciones (Integración con Stripe).</li>
-                  <li>Panel de Auditoría e Historial de actividad.</li>
+                  <li>FacturaciÃ³n y suscripciones (IntegraciÃ³n con Stripe).</li>
+                  <li>Panel de AuditorÃ­a e Historial de actividad.</li>
                 </ul>
               </div>
 
@@ -229,10 +229,10 @@ export default function Presentation() {
                 <h3 className="text-red-400 text-2xl font-bold mb-4">Fuera del Alcance (Fases futuras)</h3>
                 <ul className="text-gray-400 text-lg space-y-2 list-disc pl-5">
                   <li>Registro con proceso de pago complejo (checkout de 3 pasos).</li>
-                  <li>Creación de roles administrativos personalizados a medida.</li>
-                  <li>Soporte multi-organización simultáneo para un solo usuario.</li>
+                  <li>CreaciÃ³n de roles administrativos personalizados a medida.</li>
+                  <li>Soporte multi-organizaciÃ³n simultÃ¡neo para un solo usuario.</li>
                   <li>Integraciones con sistemas contables (ERPs) externos.</li>
-                  <li>Aplicaciones móviles nativas (iOS/Android).</li>
+                  <li>Aplicaciones mÃ³viles nativas (iOS/Android).</li>
                 </ul>
               </div>
             </motion.div>
@@ -243,7 +243,7 @@ export default function Presentation() {
     },
     {
       id: 4,
-      title: "Arquitectura y Decisiones Técnicas",
+      title: "Arquitectura y Decisiones TÃ©cnicas",
       component: (
         <div className="flex flex-col h-full py-8 px-12 lg:px-20">
           <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white">Arquitectura y Decisiones Principales</h2>
@@ -255,8 +255,8 @@ export default function Presentation() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Frontend Reactivo</h3>
-                <p className="text-gray-400 text-sm mb-2"><strong>Decisión:</strong> Next.js (App Router), React y Tailwind CSS.</p>
-                <p className="text-gray-500 text-xs">Separación de Server y Client components para mejorar rendimiento (SSR) y SEO.</p>
+                <p className="text-gray-400 text-sm mb-2"><strong>DecisiÃ³n:</strong> Next.js (App Router), React y Tailwind CSS.</p>
+                <p className="text-gray-500 text-xs">SeparaciÃ³n de Server y Client components para mejorar rendimiento (SSR) y SEO.</p>
               </motion.div>
 
               {/* Backend / DB */}
@@ -265,8 +265,8 @@ export default function Presentation() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">BaaS & PostgreSQL</h3>
-                <p className="text-gray-400 text-sm mb-2"><strong>Decisión:</strong> Supabase como backend-as-a-service.</p>
-                <p className="text-gray-500 text-xs">Manejo de modelos relacionales, almacenamiento en Buckets S3 y autenticación nativa.</p>
+                <p className="text-gray-400 text-sm mb-2"><strong>DecisiÃ³n:</strong> Supabase como backend-as-a-service.</p>
+                <p className="text-gray-500 text-xs">Manejo de modelos relacionales, almacenamiento en Buckets S3 y autenticaciÃ³n nativa.</p>
               </motion.div>
 
               {/* Seguridad */}
@@ -275,7 +275,7 @@ export default function Presentation() {
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">Seguridad en Capas</h3>
-                <p className="text-gray-400 text-sm mb-2"><strong>Decisión:</strong> JWT + Row Level Security (RLS).</p>
+                <p className="text-gray-400 text-sm mb-2"><strong>DecisiÃ³n:</strong> JWT + Row Level Security (RLS).</p>
                 <p className="text-gray-500 text-xs">Middleware en Next.js para rutas, y RLS en Postgres para asegurar que los usuarios solo vean sus datos.</p>
               </motion.div>
 
@@ -284,9 +284,9 @@ export default function Presentation() {
                 <div className="w-16 h-16 bg-[#27272a] rounded-2xl flex items-center justify-center mb-4 text-[#EC4899]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2">Integración Continua</h3>
-                <p className="text-gray-400 text-sm mb-2"><strong>Decisión:</strong> GitHub Actions y Vercel.</p>
-                <p className="text-gray-500 text-xs">Protección de rama main. Despliegues inmutables automáticos con rollback garantizado.</p>
+                <h3 className="text-2xl font-bold text-white mb-2">IntegraciÃ³n Continua</h3>
+                <p className="text-gray-400 text-sm mb-2"><strong>DecisiÃ³n:</strong> GitHub Actions y Vercel.</p>
+                <p className="text-gray-500 text-xs">ProtecciÃ³n de rama main. Despliegues inmutables automÃ¡ticos con rollback garantizado.</p>
               </motion.div>
             </div>
           </div>
@@ -304,23 +304,23 @@ export default function Presentation() {
               <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="depth-2 p-8 lg:p-10 rounded-3xl flex flex-col justify-center">
                 <h3 className="text-[#8B5CF6] text-3xl font-bold mb-6">Matriz de Roles</h3>
                 <ul className="space-y-5 text-gray-300 text-lg">
-                  <li><strong className="text-white text-xl">Propietario (Owner):</strong> Control total de la organización, facturación y suscripciones.</li>
-                  <li><strong className="text-white text-xl">Administrador:</strong> Gestión de salas, asignación de permisos e invitaciones de equipo.</li>
-                  <li><strong className="text-white text-xl">Miembro:</strong> Acceso restringido a salas asignadas y participación en flujos.</li>
-                  <li><strong className="text-white text-xl">Demo:</strong> Usuario sin organización que prueba la plataforma bajo límites estrictos.</li>
+                  <li><strong className="text-white text-xl">Propietario (Owner):</strong> Control total de la organizaciÃ³n, facturaciÃ³n y suscripciones.</li>
+                  <li><strong className="text-white text-xl">Administrador:</strong> GestiÃ³n de salas, asignaciÃ³n de permisos e invitaciones de equipo.</li>
+                  <li><strong className="text-white text-xl">Miembro:</strong> Acceso restringido a salas asignadas y participaciÃ³n en flujos.</li>
+                  <li><strong className="text-white text-xl">Demo:</strong> Usuario sin organizaciÃ³n que prueba la plataforma bajo lÃ­mites estrictos.</li>
                 </ul>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="depth-2 p-8 lg:p-10 rounded-3xl bg-[#7C3AED]/10 border-[#8B5CF6]/30 flex flex-col justify-center">
-                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-6">Procesos Críticos</h3>
+                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-6">Procesos CrÃ­ticos</h3>
                 <div className="space-y-6">
                   <div className="bg-[#171717] p-5 rounded-2xl border border-[#3F3F46]">
                     <h4 className="text-xl font-bold text-white mb-2">Motor de Aprobaciones</h4>
-                    <p className="text-gray-300 text-base">Calcula turnos (lineales o paralelos) mediante ordenamiento topológico (algoritmo de Kahn). Bloquea la interacción hasta que sea el turno exacto del usuario.</p>
+                    <p className="text-gray-300 text-base">Calcula turnos (lineales o paralelos) mediante ordenamiento topolÃ³gico (algoritmo de Kahn). Bloquea la interacciÃ³n hasta que sea el turno exacto del usuario.</p>
                   </div>
                   <div className="bg-[#171717] p-5 rounded-2xl border border-[#3F3F46]">
-                    <h4 className="text-xl font-bold text-white mb-2">Firma Digital Criptográfica (PKI)</h4>
-                    <p className="text-gray-300 text-base">Firma matemática del PDF usando el certificado `.p12` de la organización. Utiliza la contraseña de inicio de sesión como factor de validación local.</p>
+                    <h4 className="text-xl font-bold text-white mb-2">Firma Digital CriptogrÃ¡fica (PKI)</h4>
+                    <p className="text-gray-300 text-base">Firma matemÃ¡tica del PDF usando el certificado `.p12` de la organizaciÃ³n. Utiliza la contraseÃ±a de inicio de sesiÃ³n como factor de validaciÃ³n local.</p>
                   </div>
                 </div>
               </motion.div>
@@ -340,7 +340,7 @@ export default function Presentation() {
                 <ul className="space-y-5 text-gray-300 text-lg">
                   <li><strong className="text-green-400">usuarios / auth:</strong> Identidad (Email, Google, GitHub) unificada bajo perfiles.</li>
                   <li><strong className="text-green-400">organizations / backrooms:</strong> Estructura central del Multitenant (aislamiento de inquilinos).</li>
-                  <li><strong className="text-green-400">salas / recursos:</strong> Árbol jerárquico recursivo de almacenamiento y archivos.</li>
+                  <li><strong className="text-green-400">salas / recursos:</strong> Ãrbol jerÃ¡rquico recursivo de almacenamiento y archivos.</li>
                   <li><strong className="text-green-400">document_workflows:</strong> Tablas relacionales que mapean grafos (nodos y aristas) para el flujo de trabajo.</li>
                 </ul>
               </motion.div>
@@ -348,9 +348,9 @@ export default function Presentation() {
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="depth-2 p-8 rounded-3xl bg-[#171717] flex flex-col justify-center border-l-4 border-l-green-500/70">
                 <h3 className="text-green-400 text-3xl font-bold mb-6">Reglas Estrictas de Integridad</h3>
                 <ul className="space-y-5 text-gray-300 text-lg">
-                  <li><strong className="text-white">Row Level Security (RLS):</strong> Políticas en PostgreSQL. El tenant A jamás puede consultar la base de datos del tenant B a nivel de motor SQL.</li>
-                  <li><strong className="text-white">Borrado en Cascada (Cascade Delete):</strong> Relaciones foráneas. Borrar una organización purga de inmediato sus salas, documentos, firmas y flujos para evitar datos huérfanos.</li>
-                  <li><strong className="text-white">Storage Privado:</strong> Los buckets en Supabase ignoran accesos públicos. Exigen token de sesión activo y membresía validada en la organización propietaria.</li>
+                  <li><strong className="text-white">Row Level Security (RLS):</strong> PolÃ­ticas en PostgreSQL. El tenant A jamÃ¡s puede consultar la base de datos del tenant B a nivel de motor SQL.</li>
+                  <li><strong className="text-white">Borrado en Cascada (Cascade Delete):</strong> Relaciones forÃ¡neas. Borrar una organizaciÃ³n purga de inmediato sus salas, documentos, firmas y flujos para evitar datos huÃ©rfanos.</li>
+                  <li><strong className="text-white">Storage Privado:</strong> Los buckets en Supabase ignoran accesos pÃºblicos. Exigen token de sesiÃ³n activo y membresÃ­a validada en la organizaciÃ³n propietaria.</li>
                 </ul>
               </motion.div>
             </div>
@@ -372,13 +372,13 @@ export default function Presentation() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-red-900/10 border border-red-500/30 p-6 rounded-3xl flex flex-col justify-between shadow-xl">
                   <div>
                     <h3 className="text-red-400 text-xl font-bold mb-3 flex items-center gap-2">
-                      <span className="text-2xl">⚠️</span> Filtrado de Datos
+                      <span className="text-2xl">âš ï¸</span> Filtrado de Datos
                     </h3>
-                    <p className="text-gray-300 text-sm mb-4">Manipulación de API para leer documentos ajenos.</p>
+                    <p className="text-gray-300 text-sm mb-4">ManipulaciÃ³n de API para leer documentos ajenos.</p>
                   </div>
                   <div className="bg-[#171717] p-4 rounded-2xl border border-[#3f3f46]">
-                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">🛡️ Control: RLS (PostgreSQL)</h4>
-                    <p className="text-gray-400 text-sm">Validación a nivel de base de datos comparando el JWT con el tenant.</p>
+                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">ðŸ›¡ï¸ Control: RLS (PostgreSQL)</h4>
+                    <p className="text-gray-400 text-sm">ValidaciÃ³n a nivel de base de datos comparando el JWT con el tenant.</p>
                   </div>
                 </motion.div>
 
@@ -386,13 +386,13 @@ export default function Presentation() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }} className="bg-red-900/10 border border-red-500/30 p-6 rounded-3xl flex flex-col justify-between shadow-xl">
                   <div>
                     <h3 className="text-red-400 text-xl font-bold mb-3 flex items-center gap-2">
-                      <span className="text-2xl">⚠️</span> Escalada de Privilegios
+                      <span className="text-2xl">âš ï¸</span> Escalada de Privilegios
                     </h3>
-                    <p className="text-gray-300 text-sm mb-4">Acceso forzado a dashboard de administración.</p>
+                    <p className="text-gray-300 text-sm mb-4">Acceso forzado a dashboard de administraciÃ³n.</p>
                   </div>
                   <div className="bg-[#171717] p-4 rounded-2xl border border-[#3f3f46]">
-                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">🛡️ Control: Edge Middleware</h4>
-                    <p className="text-gray-400 text-sm">Validación de cookies HTTP-Only en la periferia de Vercel.</p>
+                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">ðŸ›¡ï¸ Control: Edge Middleware</h4>
+                    <p className="text-gray-400 text-sm">ValidaciÃ³n de cookies HTTP-Only en la periferia de Vercel.</p>
                   </div>
                 </motion.div>
 
@@ -400,12 +400,12 @@ export default function Presentation() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="bg-red-900/10 border border-red-500/30 p-6 rounded-3xl flex flex-col justify-between shadow-xl">
                   <div>
                     <h3 className="text-red-400 text-xl font-bold mb-3 flex items-center gap-2">
-                      <span className="text-2xl">⚠️</span> Repudio y Falsificación
+                      <span className="text-2xl">âš ï¸</span> Repudio y FalsificaciÃ³n
                     </h3>
-                    <p className="text-gray-300 text-sm mb-4">Alteración de PDF original post-aprobación o repudio.</p>
+                    <p className="text-gray-300 text-sm mb-4">AlteraciÃ³n de PDF original post-aprobaciÃ³n o repudio.</p>
                   </div>
                   <div className="bg-[#171717] p-4 rounded-2xl border border-[#3f3f46]">
-                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">🛡️ Control: Firma Digital (PKI)</h4>
+                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">ðŸ›¡ï¸ Control: Firma Digital (PKI)</h4>
                     <p className="text-gray-400 text-sm">Cifrado con certificado .p12 y hash inmutable del contenido.</p>
                   </div>
                 </motion.div>
@@ -414,13 +414,13 @@ export default function Presentation() {
                 <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }} className="bg-red-900/10 border border-red-500/30 p-6 rounded-3xl flex flex-col justify-between shadow-xl">
                   <div>
                     <h3 className="text-red-400 text-xl font-bold mb-3 flex items-center gap-2">
-                      <span className="text-2xl">⚠️</span> Fuerza Bruta / Bots
+                      <span className="text-2xl">âš ï¸</span> Fuerza Bruta / Bots
                     </h3>
-                    <p className="text-gray-300 text-sm mb-4">Scripts adivinando contraseñas o creando cuentas masivas.</p>
+                    <p className="text-gray-300 text-sm mb-4">Scripts adivinando contraseÃ±as o creando cuentas masivas.</p>
                   </div>
                   <div className="bg-[#171717] p-4 rounded-2xl border border-[#3f3f46]">
-                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">🛡️ Control: Google ReCaptcha V3</h4>
-                    <p className="text-gray-400 text-sm">Bloqueo de formularios sin token válido en endpoints críticos.</p>
+                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">ðŸ›¡ï¸ Control: Google ReCaptcha V3</h4>
+                    <p className="text-gray-400 text-sm">Bloqueo de formularios sin token vÃ¡lido en endpoints crÃ­ticos.</p>
                   </div>
                 </motion.div>
 
@@ -435,7 +435,7 @@ export default function Presentation() {
       title: "Landing Page",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
-          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Landing Page</h2>
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">DemostraciÃ³n: Landing Page</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
             <PresentationVideo videos={["landingGrabacion.mp4"]} loop />
           </div>
@@ -444,10 +444,10 @@ export default function Presentation() {
     },
     {
       id: 9,
-      title: "Autenticación",
+      title: "AutenticaciÃ³n",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
-          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Autenticación</h2>
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">DemostraciÃ³n: AutenticaciÃ³n</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
             <PresentationVideo videos={["GrabacionLogin.mp4", "createCountGrabacion.mp4", "GrabacionRecovery.mp4"]} loop />
           </div>
@@ -459,7 +459,7 @@ export default function Presentation() {
       title: "Dashboard",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
-          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Primer Vistazo</h2>
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">DemostraciÃ³n: Primer Vistazo</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
             <PresentationVideo videos={["GrabacionSoloDashboardVistaInicial.mp4"]} loop />
           </div>
@@ -468,10 +468,10 @@ export default function Presentation() {
     },
     {
       id: 11,
-      title: "Gestión Documental",
+      title: "GestiÃ³n Documental",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
-          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Gestión Documental</h2>
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">DemostraciÃ³n: GestiÃ³n Documental</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
             <PresentationVideo videos={["grabacion_jerarquia_allmacenamiento_historial.mp4"]} loop />
           </div>
@@ -483,7 +483,7 @@ export default function Presentation() {
       title: "Estructura Interna",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
-          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Estructura Interna</h2>
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">DemostraciÃ³n: Estructura Interna</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
             <PresentationVideo videos={["grabacionBackroomSubsalasMapaSubirPermisos.mp4"]} loop />
           </div>
@@ -495,7 +495,7 @@ export default function Presentation() {
       title: "Flujo Completo",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
-          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">Demostración: Flujo de Trabajo Completo</h2>
+          <h2 className="text-4xl font-bold mb-8 text-gray-200 border-l-8 border-[#8B5CF6] pl-6">DemostraciÃ³n: Flujo de Trabajo Completo</h2>
           <div className="flex-grow rounded-2xl overflow-hidden shadow-2xl shadow-[#7C3AED]/10">
             <PresentationVideo videos={["GrabacionFlujoNormal.mp4"]} loop />
           </div>
@@ -512,27 +512,27 @@ export default function Presentation() {
           <div className="flex-grow flex items-center justify-center">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full max-w-7xl">
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] shadow-xl">
-                <h3 className="text-[#10B981] text-3xl font-bold mb-6">Éxitos e Indicadores</h3>
+                <h3 className="text-[#10B981] text-3xl font-bold mb-6">Ã‰xitos e Indicadores</h3>
                 <ul className="text-gray-300 text-lg space-y-6">
-                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#10B981] shrink-0"></span> <p><strong>Despliegue Ininterrumpido:</strong> Pipeline CI/CD estable mediante GitHub Actions con cero caídas en producción.</p></li>
-                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#10B981] shrink-0"></span> <p><strong>Seguridad Comprobada:</strong> Flujos de aprobación y autenticación verificados con roles estrictos.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#10B981] shrink-0"></span> <p><strong>Despliegue Ininterrumpido:</strong> Pipeline CI/CD estable mediante GitHub Actions con cero caÃ­das en producciÃ³n.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#10B981] shrink-0"></span> <p><strong>Seguridad Comprobada:</strong> Flujos de aprobaciÃ³n y autenticaciÃ³n verificados con roles estrictos.</p></li>
                   <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#10B981] shrink-0"></span> <p><strong>UX Optimizada:</strong> Carga de documentos e interfaz fluida gracias al procesamiento en el Edge.</p></li>
                 </ul>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] shadow-xl">
-                <h3 className="text-[#F59E0B] text-3xl font-bold mb-6">Deuda Técnica</h3>
+                <h3 className="text-[#F59E0B] text-3xl font-bold mb-6">Deuda TÃ©cnica</h3>
                 <ul className="text-gray-300 text-lg space-y-6">
                   <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#F59E0B] shrink-0"></span> <p><strong>Pruebas E2E Limitadas:</strong> La cobertura de test automatizados actuales es baja; se planea integrar Cypress para flujos completos.</p></li>
-                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#F59E0B] shrink-0"></span> <p><strong>Refactorización:</strong> Falta desacoplar el código de algunos componentes monolíticos del Dashboard principal para mejorar su mantenibilidad.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#F59E0B] shrink-0"></span> <p><strong>RefactorizaciÃ³n:</strong> Falta desacoplar el cÃ³digo de algunos componentes monolÃ­ticos del Dashboard principal para mejorar su mantenibilidad.</p></li>
                 </ul>
               </motion.div>
 
               <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="bg-[#171717] p-10 rounded-3xl border border-[#3f3f46] shadow-xl">
                 <h3 className="text-[#8B5CF6] text-3xl font-bold mb-6">Trabajo Futuro</h3>
                 <ul className="text-gray-300 text-lg space-y-6">
-                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#8B5CF6] shrink-0"></span> <p><strong>Arquitectura Multi-Tenant:</strong> Escalar la base de datos para que múltiples organizaciones independientes compartan la infraestructura del sistema de forma segura.</p></li>
-                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#8B5CF6] shrink-0"></span> <p><strong>Firma Electrónica Real:</strong> Conexión con APIs de autoridades certificadoras oficiales para otorgar validez legal a los documentos firmados.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#8B5CF6] shrink-0"></span> <p><strong>Arquitectura Multi-Tenant:</strong> Escalar la base de datos para que mÃºltiples organizaciones independientes compartan la infraestructura del sistema de forma segura.</p></li>
+                  <li className="flex items-start gap-4"><span className="w-2 h-2 mt-2.5 rounded-full bg-[#8B5CF6] shrink-0"></span> <p><strong>Firma ElectrÃ³nica Real:</strong> ConexiÃ³n con APIs de autoridades certificadoras oficiales para otorgar validez legal a los documentos firmados.</p></li>
                 </ul>
               </motion.div>
             </div>
