@@ -307,7 +307,6 @@ export default function Presentation() {
                   <li><strong className="text-white text-xl">Propietario (Owner):</strong> Control total de la organización, facturación y suscripciones.</li>
                   <li><strong className="text-white text-xl">Administrador:</strong> Gestión de salas, asignación de permisos e invitaciones de equipo.</li>
                   <li><strong className="text-white text-xl">Miembro:</strong> Acceso restringido a salas asignadas y participación en flujos.</li>
-                  <li><strong className="text-white text-xl">Superadmin:</strong> Gestión global de la plataforma SaaS Backroom.</li>
                   <li><strong className="text-white text-xl">Demo:</strong> Usuario sin organización que prueba la plataforma bajo límites estrictos.</li>
                 </ul>
               </motion.div>
