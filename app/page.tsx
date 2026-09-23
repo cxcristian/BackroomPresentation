@@ -358,46 +358,78 @@ export default function Presentation() {
         )
       },
 
-    {
-      id: 7,
-      title: "Seguridad y Controles Aplicados",
-      component: (
-        <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
-          <h2 className="text-5xl font-bold mb-8 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">Seguridad y Control de Amenazas</h2>
-          
-          <div className="flex-grow flex items-center justify-center">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-6xl">
-              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-red-900/10 border border-red-500/30 p-10 rounded-3xl flex flex-col justify-between shadow-xl">
-                <div>
-                  <h3 className="text-red-400 text-3xl font-bold mb-6 flex items-center gap-3">
-                    <span className="text-3xl">⚠️</span> Amenaza: Acceso a Datos de Terceros
-                  </h3>
-                  <p className="text-gray-300 text-xl mb-8 leading-relaxed">Existe el riesgo latente de que un usuario malintencionado intente manipular la URL o la API para interceptar y leer documentos confidenciales de otras organizaciones o salas a las que no pertenece.</p>
-                </div>
-                <div className="bg-[#171717] p-6 rounded-2xl border border-[#3f3f46]">
-                  <h4 className="text-green-400 font-bold text-xl mb-3 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> Control: RLS (PostgreSQL)</h4>
-                  <p className="text-gray-400 text-base leading-relaxed">Implementamos Row Level Security (RLS) directamente a nivel de base de datos. Incluso si la capa de la API fuera vulnerada, la base de datos rechaza automáticamente cualquier consulta si el UUID del token JWT no coincide exactamente con el propietario del registro.</p>
-                </div>
-              </motion.div>
+          {
+        id: 7,
+        title: "Seguridad y Controles Aplicados",
+        component: (
+          <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
+            <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">Matriz de Amenazas y Controles</h2>
+            
+            <div className="flex-grow flex items-center justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-6xl">
+                
+                {/* 1. RLS */}
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-red-900/10 border border-red-500/30 p-6 rounded-3xl flex flex-col justify-between shadow-xl">
+                  <div>
+                    <h3 className="text-red-400 text-xl font-bold mb-3 flex items-center gap-2">
+                      <span className="text-2xl">⚠️</span> Filtrado de Datos
+                    </h3>
+                    <p className="text-gray-300 text-sm mb-4">Manipulación de API para leer documentos ajenos.</p>
+                  </div>
+                  <div className="bg-[#171717] p-4 rounded-2xl border border-[#3f3f46]">
+                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">🛡️ Control: RLS (PostgreSQL)</h4>
+                    <p className="text-gray-400 text-sm">Validación a nivel de base de datos comparando el JWT con el tenant.</p>
+                  </div>
+                </motion.div>
 
-              <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="bg-red-900/10 border border-red-500/30 p-10 rounded-3xl flex flex-col justify-between shadow-xl">
-                <div>
-                  <h3 className="text-red-400 text-3xl font-bold mb-6 flex items-center gap-3">
-                    <span className="text-3xl">⚠️</span> Amenaza: Escalada de Privilegios
-                  </h3>
-                  <p className="text-gray-300 text-xl mb-8 leading-relaxed">Usuarios no autenticados o con roles básicos podrían intentar forzar su acceso a rutas protegidas (como el Dashboard de administración) para ejecutar acciones destructivas.</p>
-                </div>
-                <div className="bg-[#171717] p-6 rounded-2xl border border-[#3f3f46]">
-                  <h4 className="text-green-400 font-bold text-xl mb-3 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> Control: Edge Middleware</h4>
-                  <p className="text-gray-400 text-base leading-relaxed">Validación estricta de cookies HTTP-Only y tokens JWT en el Edge (antes de que la petición llegue al servidor principal). Esto permite un bloqueo y redirección instantáneos, previniendo fugas de información en la interfaz.</p>
-                </div>
-              </motion.div>
+                {/* 2. Middleware */}
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }} className="bg-red-900/10 border border-red-500/30 p-6 rounded-3xl flex flex-col justify-between shadow-xl">
+                  <div>
+                    <h3 className="text-red-400 text-xl font-bold mb-3 flex items-center gap-2">
+                      <span className="text-2xl">⚠️</span> Escalada de Privilegios
+                    </h3>
+                    <p className="text-gray-300 text-sm mb-4">Acceso forzado a dashboard de administración.</p>
+                  </div>
+                  <div className="bg-[#171717] p-4 rounded-2xl border border-[#3f3f46]">
+                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">🛡️ Control: Edge Middleware</h4>
+                    <p className="text-gray-400 text-sm">Validación de cookies HTTP-Only en la periferia de Vercel.</p>
+                  </div>
+                </motion.div>
+
+                {/* 3. PKI */}
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2 }} className="bg-red-900/10 border border-red-500/30 p-6 rounded-3xl flex flex-col justify-between shadow-xl">
+                  <div>
+                    <h3 className="text-red-400 text-xl font-bold mb-3 flex items-center gap-2">
+                      <span className="text-2xl">⚠️</span> Repudio y Falsificación
+                    </h3>
+                    <p className="text-gray-300 text-sm mb-4">Alteración de PDF original post-aprobación o repudio.</p>
+                  </div>
+                  <div className="bg-[#171717] p-4 rounded-2xl border border-[#3f3f46]">
+                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">🛡️ Control: Firma Digital (PKI)</h4>
+                    <p className="text-gray-400 text-sm">Cifrado con certificado .p12 y hash inmutable del contenido.</p>
+                  </div>
+                </motion.div>
+
+                {/* 4. ReCaptcha */}
+                <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }} className="bg-red-900/10 border border-red-500/30 p-6 rounded-3xl flex flex-col justify-between shadow-xl">
+                  <div>
+                    <h3 className="text-red-400 text-xl font-bold mb-3 flex items-center gap-2">
+                      <span className="text-2xl">⚠️</span> Fuerza Bruta / Bots
+                    </h3>
+                    <p className="text-gray-300 text-sm mb-4">Scripts adivinando contraseñas o creando cuentas masivas.</p>
+                  </div>
+                  <div className="bg-[#171717] p-4 rounded-2xl border border-[#3f3f46]">
+                    <h4 className="text-green-400 font-bold text-md mb-2 flex items-center gap-2">🛡️ Control: Google ReCaptcha V3</h4>
+                    <p className="text-gray-400 text-sm">Bloqueo de formularios sin token válido en endpoints críticos.</p>
+                  </div>
+                </motion.div>
+
+              </div>
             </div>
           </div>
-        </div>
-      )
-    },
-    // FASE 3: VIDEOS DE LA APP
+        )
+      },
+      // FASE 3: VIDEOS DE LA APP
     {
       id: 8,
       title: "Landing Page",
