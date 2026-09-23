@@ -113,7 +113,7 @@ export default function Presentation() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white">Escanea el QR</h4>
-                    <p className="text-base text-gray-400">Para ver todo el detalle técnico en la web</p>
+                    <p className="text-base text-gray-400">Para ver más detalles de Backroom</p>
                   </div>
                 </div>
               </div>
