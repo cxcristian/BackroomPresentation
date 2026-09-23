@@ -211,7 +211,7 @@ export default function Presentation() {
             {/* Columna Derecha: Alcance */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="flex flex-col gap-4">
               <div className="depth-2 p-6 rounded-3xl border-l-8 border-green-500/70 bg-[#171717] flex-grow">
-                <h3 className="text-green-400 text-2xl font-bold mb-4">Completado en el Alcance</h3>
+                <h3 className="text-green-400 text-2xl font-bold mb-4">Completado en el Alcance (MVP)</h3>
                 <ul className="text-gray-300 text-lg space-y-2 list-disc pl-5">
                   <li>Autenticación segura (Email y OAuth2 Google/GitHub).</li>
                   <li>Gestión de Organizaciones, roles fijos y cuentas Demo.</li>
