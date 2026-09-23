@@ -124,7 +124,7 @@ export default function Presentation() {
               <div className="depth-2 p-8 lg:p-10 rounded-3xl bg-[#7C3AED]/10 border-[#8B5CF6]/30 flex-grow">
                 <h3 className="text-[#8B5CF6] text-3xl font-bold mb-4">La Solución: Backroom</h3>
                 <p className="text-gray-200 text-xl leading-relaxed">
-                  Backroom es una plataforma web integral tipo SaaS diseñada para erradicar el caos. Centraliza los archivos en una jerarquía infinita de "Salas", ofreciendo un motor de flujos de trabajo automatizados, firmas de documentos, control estricto de versiones y una matriz de permisos granulares que garantiza eficiencia y control total.
+                  Backroom es una plataforma web integral tipo SaaS diseñada para erradicar el caos. Centraliza los archivos en una jerarquía estructurada de "Salas", ofreciendo un motor de flujos de trabajo automatizados, firmas de documentos integradas y una matriz de permisos granulares que garantiza eficiencia y seguridad total.
                 </p>
               </div>
 
