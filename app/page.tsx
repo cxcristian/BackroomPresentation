@@ -293,8 +293,74 @@ export default function Presentation() {
         </div>
       )
     },
+      // FASE INTERMEDIA: USUARIOS Y MODELOS DE DATOS
+      {
+        id: 5,
+        title: "Usuarios y Procesos",
+        component: (
+          <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
+            <h2 className="text-5xl font-bold mb-6 border-l-8 border-[#8B5CF6] pl-6 text-white shrink-0">Usuarios y Roles</h2>
+            <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="depth-2 p-8 lg:p-10 rounded-3xl flex flex-col justify-center">
+                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-6">Matriz de Roles</h3>
+                <ul className="space-y-5 text-gray-300 text-lg">
+                  <li><strong className="text-white text-xl">Propietario (Owner):</strong> Control total de la organización, facturación y suscripciones.</li>
+                  <li><strong className="text-white text-xl">Administrador:</strong> Gestión de salas, asignación de permisos e invitaciones de equipo.</li>
+                  <li><strong className="text-white text-xl">Miembro:</strong> Acceso restringido a salas asignadas y participación en flujos.</li>
+                  <li><strong className="text-white text-xl">Superadmin:</strong> Gestión global de la plataforma SaaS Backroom.</li>
+                  <li><strong className="text-white text-xl">Demo:</strong> Usuario sin organización que prueba la plataforma bajo límites estrictos.</li>
+                </ul>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }} className="depth-2 p-8 lg:p-10 rounded-3xl bg-[#7C3AED]/10 border-[#8B5CF6]/30 flex flex-col justify-center">
+                <h3 className="text-[#8B5CF6] text-3xl font-bold mb-6">Procesos Críticos</h3>
+                <div className="space-y-6">
+                  <div className="bg-[#171717] p-5 rounded-2xl border border-[#3F3F46]">
+                    <h4 className="text-xl font-bold text-white mb-2">Motor de Aprobaciones</h4>
+                    <p className="text-gray-300 text-base">Calcula turnos (lineales o paralelos) mediante ordenamiento topológico (algoritmo de Kahn). Bloquea la interacción hasta que sea el turno exacto del usuario.</p>
+                  </div>
+                  <div className="bg-[#171717] p-5 rounded-2xl border border-[#3F3F46]">
+                    <h4 className="text-xl font-bold text-white mb-2">Firma Digital Criptográfica (PKI)</h4>
+                    <p className="text-gray-300 text-base">Firma matemática del PDF usando el certificado `.p12` de la organización. Utiliza la contraseña de inicio de sesión como factor de validación local.</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        )
+      },
+      {
+        id: 6,
+        title: "Modelo de Datos e Integridad",
+        component: (
+          <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
+            <h2 className="text-5xl font-bold mb-6 border-l-8 border-green-500 pl-6 text-white shrink-0">Modelo de Datos e Integridad</h2>
+            <div className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="depth-2 p-8 rounded-3xl flex flex-col justify-center border-l-4 border-l-green-500/70">
+                <h3 className="text-white text-3xl font-bold mb-6">Modelos Principales</h3>
+                <ul className="space-y-5 text-gray-300 text-lg">
+                  <li><strong className="text-green-400">usuarios / auth:</strong> Identidad (Email, Google, GitHub) unificada bajo perfiles.</li>
+                  <li><strong className="text-green-400">organizations / backrooms:</strong> Estructura central del Multitenant (aislamiento de inquilinos).</li>
+                  <li><strong className="text-green-400">salas / recursos:</strong> Árbol jerárquico recursivo de almacenamiento y archivos.</li>
+                  <li><strong className="text-green-400">document_workflows:</strong> Tablas relacionales que mapean grafos (nodos y aristas) para el flujo de trabajo.</li>
+                </ul>
+              </motion.div>
+
+              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="depth-2 p-8 rounded-3xl bg-[#171717] flex flex-col justify-center border-l-4 border-l-green-500/70">
+                <h3 className="text-green-400 text-3xl font-bold mb-6">Reglas Estrictas de Integridad</h3>
+                <ul className="space-y-5 text-gray-300 text-lg">
+                  <li><strong className="text-white">Row Level Security (RLS):</strong> Políticas en PostgreSQL. El tenant A jamás puede consultar la base de datos del tenant B a nivel de motor SQL.</li>
+                  <li><strong className="text-white">Borrado en Cascada (Cascade Delete):</strong> Relaciones foráneas. Borrar una organización purga de inmediato sus salas, documentos, firmas y flujos para evitar datos huérfanos.</li>
+                  <li><strong className="text-white">Storage Privado:</strong> Los buckets en Supabase ignoran accesos públicos. Exigen token de sesión activo y membresía validada en la organización propietaria.</li>
+                </ul>
+              </motion.div>
+            </div>
+          </div>
+        )
+      },
+
     {
-      id: 5,
+      id: 7,
       title: "Seguridad y Controles Aplicados",
       component: (
         <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
@@ -334,7 +400,7 @@ export default function Presentation() {
     },
     // FASE 3: VIDEOS DE LA APP
     {
-      id: 6,
+      id: 8,
       title: "Landing Page",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -346,7 +412,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 7,
+      id: 9,
       title: "Autenticación",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -358,7 +424,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 8,
+      id: 10,
       title: "Dashboard",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -370,7 +436,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 9,
+      id: 11,
       title: "Gestión Documental",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -382,7 +448,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 10,
+      id: 12,
       title: "Estructura Interna",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -394,7 +460,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 11,
+      id: 13,
       title: "Flujo Completo",
       component: (
         <div className="flex flex-col h-full p-8 lg:p-12">
@@ -406,7 +472,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 12,
+      id: 14,
       title: "Resultados y Cierre",
       component: (
         <div className="flex flex-col h-full py-8 px-12 lg:px-20 overflow-y-auto">
@@ -444,7 +510,7 @@ export default function Presentation() {
       )
     },
     {
-      id: 13,
+      id: 15,
       title: "Cierre / Landing Page",
       component: (
         <div className="w-full h-full relative flex items-center justify-center">
