@@ -66,7 +66,7 @@ export default function Presentation() {
               <span className="text-[#8B5CF6]">room</span>
             </h1>
             <p className="text-2xl text-gray-400 font-light mb-2">
-              Gestión y Organización de Documentos
+              Plataforma Web de Gestión Documental y Flujos de Trabajo
             </p>
             <div className="inline-block border border-[#8B5CF6]/50 bg-[#8B5CF6]/10 text-[#8B5CF6] px-3 py-1 rounded-full text-sm font-medium tracking-wide">
               v9.2.0
